@@ -1,0 +1,29 @@
+<a href="" ng-if="!uc.user" ng-click="uc.login()">Log In</a>
+<a href="" ng-if="uc.user" ng-click="uc.logout()">Log Out</a>
+
+<script type="text/ng-template" id="loginModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">Sign In, Bitch!</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<div class="alert alert-danger" ng-if="lm.errors.length">
+			<ul>
+				<li ng-repeat="error in lm.errors track by $index">{{ error }}</li>
+			</ul>
+		</div>
+		<form class="form">
+			<div class="form-group">
+				<label>Email</label>
+				<input type="text" class="form-control" ng-model="lm.credentials.email">
+			</div>
+			<div class="form-group">
+				<label>Password</label>
+				<input type="password" class="form-control" ng-model="lm.credentials.password">
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" ng-click="lm.ok()">Log In</button>
+		<button type="button" class="btn btn-warning" ng-click="lm.cancel()">Cancel</button>
+	</div>
+</script>

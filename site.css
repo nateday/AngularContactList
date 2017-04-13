@@ -1,0 +1,19 @@
+body {
+	margin: 20px;
+	margin-top: 60px;
+}
+
+.contact {
+	display: inline-block;
+	width: 200px;
+}
+
+.navbar-inverse .navbar-nav>li>user-profile>a {
+    color: #9d9d9d;
+	padding: 15px;
+	display: block;
+}
+
+contact-detail {
+	display: table-row
+}

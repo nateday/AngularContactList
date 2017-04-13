@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+	<title>My Angular Contacts</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="site.css">
+  </head>
+
+  <body ng-app="contactApp">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top title">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">My Contacts</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><user-profile></user-profile></li>
+          </ul>
+          <search-contacts></search-contacts>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 sidebar">
+          <ul class="nav nav-sidebar">
+			      <li><a ui-sref="dashboard({category: 'All'})">All</a></li>
+            <li><a ui-sref="dashboard({category: 'Family'})">Family</a></li>
+            <li><a ui-sref="dashboard({category: 'Friends'})">Friends</a></li>
+            <li><a ui-sref="dashboard({category: 'Work'})">Work</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-8 main">
+			    <div ui-view></div>
+        </div>
+      </div>
+    </div>
+
+	<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+    apiKey: "AIzaSyBCQIecQj4nwIBrv3eCCsWvy7enqFqPU04",
+    authDomain: "bcw-angularcontacts.firebaseapp.com",
+    databaseURL: "https://bcw-angularcontacts.firebaseio.com",
+    storageBucket: "bcw-angularcontacts.appspot.com",
+    messagingSenderId: "593527455688"
+  };
+		firebase.initializeApp(config);
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+	<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+	<script src="app.js"></script>
+	<script src="ContactList/contactList.js"></script>
+	<script src="ContactDetail/contactDetail.js"></script>
+  <script src="UserProfile/userProfile.js"></script>
+  <script src="SearchContacts/searchContacts.js"></script>
+  <script src="SearchResults/searchResults.js"></script>
+  </body>
+</html>

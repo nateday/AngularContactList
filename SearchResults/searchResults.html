@@ -1,0 +1,24 @@
+<div>
+	<h2>Search results for: {{ src.query }}</h2>
+</div>
+<div>
+	<button type="button" class="btn btn-primary" ng-click="cl.addContact()">Add Contact</button>
+</div>
+<div style="margin-top: 20px;">
+	<table class="table table-striped">
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Phone</th>
+			<th></th>
+		</tr>
+		<tr ng-repeat="contact in src.contactList track by $index">
+			<td>{{ contact.firstName }}</td>
+			<td>{{ contact.lastName }}</td>
+			<td>{{ contact.phone }}</td>
+			<td>
+				<a ui-sref="contact({id: contact.$id})">Detail</a>
+			</td>
+		</tr>
+	</table>
+</div>

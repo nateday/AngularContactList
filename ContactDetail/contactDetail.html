@@ -1,0 +1,51 @@
+<div ng-attr-id="{{ cd.contact.id }}" class="panel panel-primary contact">
+	<div class="panel-heading">
+		<h3>{{ cd.contact.firstName + ' ' + cd.contact.lastName }}</h3>
+	</div>
+	<div class="panel-body">
+		<div>
+			<span>{{ cd.contact.phone }}</span>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="row">
+			<div class="col-sm-6">
+				<button type="button" class="btn btn-primary btn-sm" ng-click="cd.contactDetail()">Detail</button>
+			</div>
+			<div class="col-sm-6">
+				<button type="button" class="btn btn-danger btn-sm" ng-click="cd.delete()">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="contactDetailModal.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">Add Contact</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<div class="alert alert-danger" ng-if="dmc.errors.length">
+			<ul>
+				<li ng-repeat="error in dmc.errors track by $index">{{ error }}</li>
+			</ul>
+		</div>
+		<form class="form">
+			<div class="form-group">
+				<label>First Name</label>
+				<input type="text" class="form-control" ng-model="dmc.contact.firstName">
+			</div>
+			<div class="form-group">
+				<label>Last Name</label>
+				<input type="text" class="form-control" ng-model="dmc.contact.lastName">
+			</div>
+			<div class="form-group">
+				<label>Phone</label>
+				<input type="text" class="form-control" ng-model="dmc.contact.phone">
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary" ng-click="dmc.saveContact()">Save</button>
+		<button type="button" class="btn btn-warning" ng-click="dmc.cancel()">Cancel</button>
+	</div>
+</script>
